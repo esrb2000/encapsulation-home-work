@@ -17,7 +17,11 @@ public class Elevator {
         currentFloor = currentFloor - 1;
     }
     public void move(int floor) {
-
+        if (floor > currentFloor) {
+         for (currentFloor; currentFloor < floor; moveUp()) {
+             System.out.println(getCurrentFloor());
+         }
+        }
     }
 
 }
