@@ -10,18 +10,27 @@ public class Elevator {
     public int getCurrentFloor() {
         return currentFloor;
     }
-    public void moveUp() {
+    public int moveUp() {
         currentFloor = currentFloor + 1;
+        return currentFloor;
     }
     public void moveDown() {
         currentFloor = currentFloor - 1;
     }
     public void move(int floor) {
-        if (floor > currentFloor) {
-         for (currentFloor; currentFloor < floor; moveUp()) {
-             System.out.println(getCurrentFloor());
-         }
+        if (currentFloor < floor) {
+            for (; currentFloor < floor;) {
+                moveUp();
+                System.out.println(getCurrentFloor());
+            }
+        } else if (currentFloor > floor) {
+            for (; currentFloor > floor ;) {
+                moveDown();
+                System.out.println(getCurrentFloor());
+            }
+        } else {
+            System.out.println(currentFloor);
         }
     }
-
 }
+
